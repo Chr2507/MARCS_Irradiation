@@ -1,0 +1,13 @@
+SCAN:
+CHI-SQUARE = 2.3571634
+scale = 3.16086e8
+
+HITEMP:
+CHI-SQUARE = 3.0476105
+scale = 3.10583e8
+
+
+Schwenke:
+CHI-SQUARE = 9.2986040
+scale = 3.05230e8
+

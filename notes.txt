@@ -1,0 +1,55 @@
+==========================================================================
+TO COMPILE MARCS:
+==========================================================================
+ifort -g -traceback -save -O2 marcs_dj_0.f -o marcs_dj_0
+ifort -g -traceback -save -O2 marcs_dj_2_test.f -o marcs_dj_2_test
+ifort -g -traceback -save -O2 marcs_aake.f -o marcs_aake
+ifort -g -C -traceback -save -O3 -fpe0 -align commons -check marcs_dj_2b.f -o marcs_dj_2b
+ifort -g -C -traceback -save -O3 -fpe0 -align commons -check -r8 marcs_dj_0b.f -o marcs_dj_0b
+
+
+==========================================================================
+TO RUN MARCS:
+==========================================================================
+1) set model parameters (it is important that columns are aligned)
+> vim mxms7.input
+
+2) copy start model to arcivaaa.dat
+> cp models/t577g44z1.arciv arcivaaa.dat
+
+3) run marcs
+> ./marcs_dj
+
+
+==========================================================================
+ATOMS:
+==========================================================================
+Atomic line opacities for warm stars
+Include e.g. osatoms_t55g45z1.dat
+
+
+==========================================================================
+MOLECULES:
+==========================================================================
+CO: osco.dat
+CN: oscn.dat
+CH: osch.dat
+TiO: ostio.dat
+OH: osoh.dat
+SiO: ossio.dat
+H2O: osh2o.dat
+
+
+==========================================================================
+METALICITIES:
+==========================================================================
+In input file, change
+&ABUNDANCES 
+ SUNZ = 't',
+to:
+ SUNZ = 'n',
+to calculate different metalicities
+
+================================================================
+Drift comi
+================

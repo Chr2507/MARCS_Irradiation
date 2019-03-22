@@ -1,0 +1,73 @@
+ $INPUT
+ ilist   = 0,
+ vspmin  = 400.,
+ vspmax  = 80000.,
+ osresl = 20000.,
+
+ model_file = 'data/models/models/SCAN/t2900g45.dat',
+ spectrum_file = 'spec.dat',
+ spect_head = '    wl[micron] cont. . . . planck'            
+
+ lavwr = 30					! average over 30 
+
+ lcolorsonly = 0,   
+ lfilter4all = 0,   
+
+ nfilt = 0,    
+ neso = 0,
+ ifilt = 3*0,3*1,
+ iscan = 0      
+
+ inst_cal = 0,   
+ nhalf_inst = 5, 
+ resl_inst = 120.,
+ nosav = 1,        
+
+ $END
+
+ $INPUT_MOL
+ imol1   =  0,    
+ imol2   =  24,
+ nspect  =  1,
+ ispec1=   1,  1, 1,  1, 1,  1, 1, 1,  1,  1,  1, 1,  1,  1,  1, 1, 1, 1,  1,  1,  1, 1,  1,   0,   0
+ ispec2=   0,  0, 0,  0, 0,  0, 0, 0,  0,  0,  0, 0,  0,  0,  0, 0, 0, 0,  0,  0,  0, 0,  0,   0,   0
+ ispec3=   0,  0, 1,  0, 0,  0, 0, 0,  0,  0,  0, 0,  0,  0,  0, 0, 0, 0,  0,  0,  0, 0,  0,   0,   0
+ ispec4=   0,  0, 0,  1, 0,  0, 0, 0,  0,  0,  0, 0,  0,  0,  0, 0, 0, 0,  0,  0,  0, 0,  0,   0,   0
+ ispec5=   0,  0, 0,  0, 0,  0, 0, 0,  0,  0,  0, 0,  0,  0,  0, 0, 0, 1,  0,  0,  0, 0,  0,   0,   0
+ ispec6=   0,  0, 0,  0, 0,  0, 0, 0,  0,  0,  0, 0,  0,  0,  0, 0, 0, 0,  0,  1,  0, 0,  0,   0,   0
+ ispec7=   0,  0, 0,  0, 0,  0, 0, 0,  0,  1,  0, 0,  0,  0,  0, 0, 0, 0,  0,  0,  0, 0,  0,   0,   0
+ ispec8=   0,  0, 0,  0, 0,  0, 0, 0,  0,  0,  1, 0,  0,  0,  0, 0, 0, 0,  0,  0,  0, 0,  0,   0,   0
+ ispec9=   0,  0, 0,  0, 0,  0, 0, 0,  0,  0,  0, 0,  0,  0,  0, 0, 0, 0,  0,  0,  0, 1,  0,   0,   0
+!       atom H2O CO TiO C2 CaH CH CN CO2 CrH FeH H2 HCN LiH MgH NH NO OH SiH SiO TiH VO ZrO dabs dsca 
+ $END
+
+ $INOS
+ osname = 'at1d' 'H2O' 'CO' 'TiO' 'C2' 'CaH' 'CH' 'CN' 'CO2' 'CrH' 'FeH' 'H2' 'HCN' 'LiH' 'MgH' 'NH' 'NO' 'OH' 'SiH' 'SiO' 'TiH' 'VO' 'ZrO' 'dabs' dsca',
+ osfil(0) = 'data/atoms/osat_t2900g45z1.dat',
+ osfil(1)  = 'data/molecules/H2O_SCAN.dat',
+ osfil(2)  = 'data/molecules/CO_Kurucz.dat',
+ osfil(3)  = 'data/molecules/TiO_Schwenke.dat',
+ osfil(4)  = 'data/molecules/C2_KuruczBrooke.dat',
+ osfil(5)  = 'data/molecules/CaH_YadinWeck.dat',
+ osfil(6)  = 'data/molecules/CH_Masseron.dat',
+ osfil(7)  = 'data/molecules/CN_BrookeSneden.dat',
+ osfil(8)  = 'data/molecules/CO2_HITEMP.dat',
+ osfil(9)  = 'data/molecules/CrH_Burrows.dat',
+ osfil(10) = 'data/molecules/FeH_Wende.dat',
+ osfil(11) = 'data/molecules/H2_Kurucz.dat',
+ osfil(12) = 'data/molecules/HCN_Harris.dat',
+ osfil(13) = 'data/molecules/LiH_Coppola.dat',
+ osfil(14) = 'data/molecules/MgH_YadinGharibNezhad.dat',
+ osfil(15) = 'data/molecules/NH_KuruczBrooke.dat',
+ osfil(16) = 'data/molecules/NO_HITEMP.dat',
+ osfil(17) = 'data/molecules/OH_Kurucz.dat',
+ osfil(18) = 'data/molecules/SiH_Kurucz.dat',
+ osfil(19) = 'data/molecules/SiO_BartonKurucz.dat',
+ osfil(20) = 'data/molecules/TiH_Burrows.dat',
+ osfil(21) = 'data/molecules/VO_Kurucz.dat',
+ osfil(22) = 'data/molecules/ZrO_Plez.dat',
+ osfil(23) = 'test_dist.abs',
+ osfil(24) = 'test_dist.sca'
+
+ $END
+
