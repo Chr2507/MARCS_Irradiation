@@ -1,6 +1,6 @@
 ITEMAX=24      NPRINT=  0     NEWMOD=  0     NOARCH=  0     JONTYP=3       IDUST =0
 JUMP  =  2     OS/ODF=OS      MOLOLD=  1     NLTE  =  0     PP/SPH=PP
-TEFF  =3000.0  GRAV  =4.50    MODEL =                        M/MSN=0.1
+TEFF  =2900.0  GRAV  =4.50    MODEL =                        M/MSN=0.1
 NOCONV= 10     XMAX  =1.0E+08 TAUM  =300.0   FACPLY=1.0     METBL =  0
 ILINE =  1     AMLOSS=1.5E-08 MOLTSJ=  1     LINCIA=  0     ISPEC =  1
 TDIAM1=1500.0  TDIAM2=2000.0  FDIAM1=0.00    FDIAM2=0.00
@@ -9,7 +9,7 @@ MIHAL = 20     KONSG =  0     KORT  = 100    KPP   =100     TCONV =2.0
 lops  =  0     nops  =  1
 PALFA =2.000   PBETA =0.000   PNY   =8.000   PY    =0.076    VFIX =0.000
 MYPNTS=  4     NCORE =  5     KDIFF =  3
-LOGTAU=-7.00   DIFFER=0.15
+LOGTAU=-5.00   DIFFER=0.15
 LOGTAU= 2.00
  &abundances  sunz='y', zscale=    1.00000, abundatms_inp=  0.    12.000000000000
  &end

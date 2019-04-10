@@ -1,11 +1,11 @@
 #makeinput
 
-
+> Irrad.dat
 SECONDS=0;
-cp models/t30g45ir.arciv  arcivaaa.dat
-./marcs_ir
-mv mxmodel.dat models/t30g45.dat
-mv arcivaab.dat models/t30g45.arciv
+cp models/t30g45.arciv  arcivaaa.dat
+./marcs
+mv mxmodel.dat models/t29g45irs.dat
+mv arcivaab.dat models/t29g45irs.arciv
 rm spectrum.dat
 rm fort.*
 rm FLUX.DAT
