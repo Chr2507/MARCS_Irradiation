@@ -199,7 +199,7 @@ Abundances of H,He,C,N,O,Fe:
 H-      H BF G1 (H+H)   H2+     H2-     C I     MG I    AL I    SI I    HE I    
 HE-     H2PR    HEPR    ELSC    H-SC    H2SC    
  time when starting OSTABLOOK:
- Total time spent:  0.06 sec. Added time:  0.06 sec.
+ Total time spent:  0.04 sec. Added time:  0.04 sec.
  Number of elements read into eqmol from tsuji.atoms:           38
   after call to JON loop (11) in OSTABLOOK
  nm=  1 for molecule: C2   with presmo index  9
@@ -747,188 +747,188 @@ HE-     H2PR    HEPR    ELSC    H-SC    H2SC
  1.032E+07 1.052E+07 1.070E+07 1.085E+07 1.099E+07 1.109E+07 1.117E+07 1.122E+07
  1.125E+07 1.124E+07 1.121E+07 1.115E+07 1.106E+07 1.095E+07 1.081E+07 1.064E+07
  total and accumulated time processing OS tables:
- Total time spent: 13.30 sec. Added time: 13.24 sec.
+ Total time spent:  8.98 sec. Added time:  8.94 sec.
  time when starting OSTABLOOK:
- Total time spent: 13.42 sec. Added time:  0.12 sec.
+ Total time spent:  9.06 sec. Added time:  0.08 sec.
  total and accumulated time processing OS tables:
- Total time spent: 24.90 sec. Added time: 11.48 sec.
+ Total time spent: 17.70 sec. Added time:  8.64 sec.
  time when starting OSTABLOOK:
- Total time spent: 25.03 sec. Added time:  0.12 sec.
+ Total time spent: 17.77 sec. Added time:  0.07 sec.
  total and accumulated time processing OS tables:
- Total time spent: 36.51 sec. Added time: 11.48 sec.
+ Total time spent: 26.45 sec. Added time:  8.68 sec.
   **** NOW AFTER CALL TO SOLVE **** 
  pe(1)=   1.928275573566455E-005
  ITERATION  1
   TEMPERATURE CORRECTION WANTED BY MARCS: 
-   -96.6  -95.9  -95.5  -95.3  -95.1  -94.8  -94.6  -96.0  -94.1  -93.8
-   -93.5  -93.2  -92.9  -92.6  -92.5  -92.1  -92.4  -91.6  -91.7  -97.7
-   -93.8  -90.7  -88.3  -86.5  -85.2  -84.3  -83.9  -84.0  -84.6  -85.5
-   -86.9  -88.7  -90.9  -93.2  -96.1  -98.9 -101.6 -104.3 -107.0 -109.7
-  -112.4 -115.0 -117.6 -120.1 -122.6 -125.4 -128.5 -131.8
+   -87.5  -86.0   92.0   34.2   -5.8  -33.4  -52.3  -66.6  -74.3  -80.3
+   -84.3  -87.0  -88.7  -89.8  -90.6  -90.9  -91.6  -91.2  -91.5  -98.2
+   -94.2  -90.9  -88.4  -86.5  -85.1  -84.3  -83.9  -83.9  -84.5  -85.4
+   -86.8  -88.6  -90.7  -93.0  -95.9  -98.7 -101.4 -104.1 -106.8 -109.6
+  -112.2 -114.8 -117.4 -119.9 -122.4 -125.2 -128.3 -131.6
   TEMPERATURE CORRECTION APPLIED WAS: 
-   -93.7  -93.1  -92.8  -92.6  -92.5  -92.3  -92.1  -93.4  -91.7  -91.5
-   -91.3  -91.0  -90.8  -90.6  -90.5  -90.3  -90.5  -89.9  -90.0  -95.7
-   -92.2  -89.3  -87.1  -85.4  -84.1  -83.4  -83.0  -83.2  -83.7  -84.7
-   -86.1  -87.8  -90.0  -92.2  -95.1  -97.8 -100.0 -100.0 -100.0 -100.0
+   -85.4  -84.1   89.6   34.1   -5.8  -33.3  -51.9  -65.8  -73.1  -78.8
+   -82.7  -85.2  -86.9  -88.0  -88.8  -89.1  -89.8  -89.5  -89.8  -96.3
+   -92.5  -89.5  -87.2  -85.4  -84.1  -83.3  -83.0  -83.1  -83.6  -84.6
+   -85.9  -87.7  -89.8  -92.1  -94.9  -97.7 -100.0 -100.0 -100.0 -100.0
   -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0 -100.0
- pe(1)=   1.030877739757862E-005
+ pe(1)=   1.611856830987114E-005
   **** NOW AFTER CALL TO MATRIX ***** 
   **** NOW ITERATION            2  IS STARTING ****
  time when starting OSTABLOOK:
- Total time spent: 37.79 sec. Added time:  1.28 sec.
+ Total time spent: 27.81 sec. Added time:  1.36 sec.
  total and accumulated time processing OS tables:
- Total time spent: 50.89 sec. Added time: 13.10 sec.
+ Total time spent: 36.49 sec. Added time:  8.68 sec.
  time when starting OSTABLOOK:
- Total time spent: 51.00 sec. Added time:  0.11 sec.
+ Total time spent: 36.57 sec. Added time:  0.08 sec.
  total and accumulated time processing OS tables:
- Total time spent: 66.35 sec. Added time: 15.35 sec.
+ Total time spent: 45.25 sec. Added time:  8.68 sec.
  time when starting OSTABLOOK:
- Total time spent: 66.47 sec. Added time:  0.12 sec.
+ Total time spent: 45.33 sec. Added time:  0.08 sec.
  total and accumulated time processing OS tables:
- Total time spent: 81.93 sec. Added time: 15.46 sec.
+ Total time spent: 54.65 sec. Added time:  9.32 sec.
   **** NOW AFTER CALL TO SOLVE **** 
- pe(1)=   1.030877739757862E-005
+ pe(1)=   1.611856830987114E-005
  ITERATION  2
   TEMPERATURE CORRECTION WANTED BY MARCS: 
-   -38.7  -37.1  -35.2  -33.4  -31.6  -29.9  -28.3  -25.2  -24.9  -23.1
-   -21.4  -19.8  -18.3  -17.0  -16.0  -15.1  -14.6  -14.2  -14.3  -21.9
-   -18.8  -16.3  -14.2  -12.5  -10.9   -9.6   -8.4   -7.3   -6.3   -5.4
-    -4.6   -3.8   -3.0   -1.1    0.1    0.8    0.8   -0.8   -2.5   -4.3
-    -6.0   -7.6   -9.3  -10.9  -12.5  -14.2  -16.0  -17.8
+   -30.4  -27.3   31.0   17.0   -1.8  -11.5  -16.5  -17.8  -19.7  -19.6
+   -19.0  -18.0  -16.9  -15.9  -15.1  -14.4  -13.9  -13.6  -13.8  -22.1
+   -18.2  -15.1  -12.8  -11.2   -9.9   -8.8   -7.9   -7.1   -6.3   -5.7
+    -5.0   -4.4   -3.8   -1.5   -0.3    0.3    0.4   -1.1   -2.7   -4.4
+    -6.0   -7.6   -9.1  -10.5  -12.0  -13.4  -15.0  -16.5
   TEMPERATURE CORRECTION APPLIED WAS: 
-   -38.5  -37.0  -35.1  -33.3  -31.5  -29.8  -28.2  -25.2  -24.8  -23.1
-   -21.4  -19.8  -18.3  -17.0  -15.9  -15.1  -14.6  -14.2  -14.3  -21.9
-   -18.8  -16.3  -14.2  -12.5  -10.9   -9.6   -8.4   -7.3   -6.3   -5.4
-    -4.6   -3.8   -3.0   -1.1    0.1    0.8    0.8   -0.8   -2.5   -4.3
-    -6.0   -7.6   -9.3  -10.9  -12.5  -14.2  -16.0  -17.8
- pe(1)=   1.132881471547650E-005
+   -30.3  -27.3   30.9   16.9   -1.8  -11.5  -16.5  -17.7  -19.7  -19.6
+   -19.0  -18.0  -16.9  -15.9  -15.0  -14.4  -13.9  -13.6  -13.8  -22.0
+   -18.1  -15.1  -12.8  -11.2   -9.9   -8.8   -7.9   -7.1   -6.3   -5.7
+    -5.0   -4.4   -3.8   -1.5   -0.3    0.3    0.4   -1.1   -2.7   -4.4
+    -6.0   -7.6   -9.1  -10.5  -12.0  -13.4  -15.0  -16.5
+ pe(1)=   1.086769624997772E-005
   **** NOW AFTER CALL TO MATRIX ***** 
   **** NOW ITERATION            3  IS STARTING ****
  time when starting OSTABLOOK:
- Total time spent: 83.80 sec. Added time:  1.87 sec.
+ Total time spent: 56.03 sec. Added time:  1.38 sec.
  total and accumulated time processing OS tables:
- Total time spent: 97.74 sec. Added time: 13.94 sec.
+ Total time spent: 65.64 sec. Added time:  9.61 sec.
  time when starting OSTABLOOK:
- Total time spent: 97.82 sec. Added time:  0.07 sec.
+ Total time spent: 65.73 sec. Added time:  0.08 sec.
  total and accumulated time processing OS tables:
- Total time spent: 113.17 sec. Added time: 15.36 sec.
+ Total time spent: 74.83 sec. Added time:  9.10 sec.
  time when starting OSTABLOOK:
- Total time spent: 113.30 sec. Added time:  0.12 sec.
+ Total time spent: 74.91 sec. Added time:  0.09 sec.
  total and accumulated time processing OS tables:
- Total time spent: 128.69 sec. Added time: 15.39 sec.
+ Total time spent: 83.58 sec. Added time:  8.66 sec.
   **** NOW AFTER CALL TO SOLVE **** 
- pe(1)=   1.132881471547650E-005
+ pe(1)=   1.086769624997772E-005
  ITERATION  3
   TEMPERATURE CORRECTION WANTED BY MARCS: 
-    -8.8   -8.1   -7.2   -6.3   -5.5   -4.8   -4.1   -3.4   -2.9   -2.3
-    -1.8   -1.3   -1.0   -0.7   -0.5   -0.3   -0.3   -0.2   -0.3    0.6
-    -0.6   -0.3   -0.2   -0.1    0.0    0.1    0.1    0.1    0.2    0.2
-     0.2    0.2    0.2   -0.9   -1.1   -1.1   -1.1   -1.6   -2.0   -2.4
-    -2.7   -3.1   -3.5   -3.8   -4.2   -4.6   -5.2   -5.7
+    -6.4   -5.3   -1.3    2.7   -0.9   -2.7   -3.3   -3.3   -3.2   -2.8
+    -2.4   -2.0   -1.7   -1.4   -1.2   -1.0   -1.0   -1.0   -1.1   -0.7
+    -1.3   -1.6   -1.6   -1.4   -1.1   -0.7   -0.4   -0.1    0.2    0.5
+     0.7    0.9    1.0   -0.4   -0.6   -0.5   -0.4   -1.0   -1.4   -1.9
+    -2.3   -2.7   -3.2   -3.7   -4.2   -4.9   -5.6   -6.4
   TEMPERATURE CORRECTION APPLIED WAS: 
-    -8.8   -8.1   -7.2   -6.3   -5.5   -4.8   -4.1   -3.4   -2.9   -2.3
-    -1.8   -1.3   -1.0   -0.7   -0.5   -0.3   -0.3   -0.2   -0.3    0.6
-    -0.6   -0.3   -0.2   -0.1    0.0    0.1    0.1    0.1    0.2    0.2
-     0.2    0.2    0.2   -0.9   -1.1   -1.1   -1.1   -1.6   -2.0   -2.4
-    -2.7   -3.1   -3.5   -3.8   -4.2   -4.6   -5.2   -5.7
- pe(1)=   1.048419742195859E-005
+    -6.4   -5.3   -1.3    2.7   -0.9   -2.7   -3.3   -3.3   -3.2   -2.8
+    -2.4   -2.0   -1.7   -1.4   -1.2   -1.0   -1.0   -1.0   -1.1   -0.7
+    -1.3   -1.6   -1.6   -1.4   -1.1   -0.7   -0.4   -0.1    0.2    0.5
+     0.7    0.9    1.0   -0.4   -0.6   -0.5   -0.4   -1.0   -1.4   -1.9
+    -2.3   -2.7   -3.2   -3.7   -4.2   -4.9   -5.6   -6.4
+ pe(1)=   1.130692039728441E-005
   **** NOW AFTER CALL TO MATRIX ***** 
   **** NOW ITERATION            4  IS STARTING ****
  time when starting OSTABLOOK:
- Total time spent: 130.30 sec. Added time:  1.61 sec.
+ Total time spent: 84.84 sec. Added time:  1.26 sec.
  total and accumulated time processing OS tables:
- Total time spent: 144.53 sec. Added time: 14.24 sec.
+ Total time spent: 93.52 sec. Added time:  8.68 sec.
  time when starting OSTABLOOK:
- Total time spent: 144.65 sec. Added time:  0.11 sec.
+ Total time spent: 93.60 sec. Added time:  0.08 sec.
  total and accumulated time processing OS tables:
- Total time spent: 159.99 sec. Added time: 15.35 sec.
+ Total time spent: 102.26 sec. Added time:  8.66 sec.
  time when starting OSTABLOOK:
- Total time spent: 160.10 sec. Added time:  0.11 sec.
+ Total time spent: 102.33 sec. Added time:  0.07 sec.
  total and accumulated time processing OS tables:
- Total time spent: 175.35 sec. Added time: 15.24 sec.
+ Total time spent: 110.98 sec. Added time:  8.65 sec.
   **** NOW AFTER CALL TO SOLVE **** 
- pe(1)=   1.048419742195859E-005
+ pe(1)=   1.130692039728441E-005
  ITERATION  4
   TEMPERATURE CORRECTION WANTED BY MARCS: 
-    -1.8   -1.5   -1.2   -0.9   -0.7   -0.5   -0.3   -0.2   -0.1    0.0
-     0.1    0.2    0.2    0.2    0.3    0.3    0.3    0.3    0.4    3.0
-    -0.4   -0.2   -0.1   -0.0   -0.0    0.0    0.0    0.0    0.0    0.0
-     0.0    0.0    0.0   -0.1   -0.1   -0.1   -0.1   -0.1   -0.1   -0.2
-    -0.2   -0.2   -0.2   -0.3   -0.3   -0.4   -0.5   -0.6
+    -0.9   -0.6   -0.1    0.3    0.2   -0.1   -0.2   -0.1   -0.1    0.0
+     0.1    0.2    0.3    0.3    0.4    0.4    0.4    0.5    0.6    4.8
+    -0.7   -0.4   -0.2   -0.1   -0.1   -0.0    0.0    0.0    0.0    0.0
+     0.0    0.0    0.0   -0.2   -0.2   -0.2   -0.2   -0.2   -0.3   -0.3
+    -0.4   -0.4   -0.5   -0.5   -0.6   -0.7   -0.8   -0.9
   TEMPERATURE CORRECTION APPLIED WAS: 
-    -1.8   -1.5   -1.2   -0.9   -0.7   -0.5   -0.3   -0.2   -0.1    0.0
-     0.1    0.2    0.2    0.2    0.3    0.3    0.3    0.3    0.4    3.0
-    -0.4   -0.2   -0.1   -0.0   -0.0    0.0    0.0    0.0    0.0    0.0
-     0.0    0.0    0.0   -0.1   -0.1   -0.1   -0.1   -0.1   -0.1   -0.2
-    -0.2   -0.2   -0.2   -0.3   -0.3   -0.4   -0.5   -0.6
- pe(1)=   1.041984345606832E-005
+    -0.9   -0.6   -0.1    0.3    0.2   -0.1   -0.2   -0.1   -0.1    0.0
+     0.1    0.2    0.3    0.3    0.4    0.4    0.4    0.5    0.6    4.8
+    -0.7   -0.4   -0.2   -0.1   -0.1   -0.0    0.0    0.0    0.0    0.0
+     0.0    0.0    0.0   -0.2   -0.2   -0.2   -0.2   -0.2   -0.3   -0.3
+    -0.4   -0.4   -0.5   -0.5   -0.6   -0.7   -0.8   -0.9
+ pe(1)=   1.119278092648212E-005
   **** NOW AFTER CALL TO MATRIX ***** 
   **** NOW ITERATION            5  IS STARTING ****
  time when starting OSTABLOOK:
- Total time spent: 177.21 sec. Added time:  1.86 sec.
+ Total time spent: 112.22 sec. Added time:  1.24 sec.
  total and accumulated time processing OS tables:
- Total time spent: 191.42 sec. Added time: 14.22 sec.
+ Total time spent: 120.91 sec. Added time:  8.69 sec.
  time when starting OSTABLOOK:
- Total time spent: 191.55 sec. Added time:  0.13 sec.
+ Total time spent: 120.99 sec. Added time:  0.08 sec.
  total and accumulated time processing OS tables:
- Total time spent: 206.32 sec. Added time: 14.77 sec.
+ Total time spent: 129.93 sec. Added time:  8.94 sec.
  time when starting OSTABLOOK:
- Total time spent: 206.41 sec. Added time:  0.09 sec.
+ Total time spent: 130.01 sec. Added time:  0.08 sec.
  total and accumulated time processing OS tables:
- Total time spent: 218.88 sec. Added time: 12.46 sec.
+ Total time spent: 139.14 sec. Added time:  9.13 sec.
   **** NOW AFTER CALL TO SOLVE **** 
- pe(1)=   1.041984345606832E-005
+ pe(1)=   1.119278092648212E-005
  ITERATION  5
   TEMPERATURE CORRECTION WANTED BY MARCS: 
-    -0.4   -0.3   -0.2   -0.2   -0.1   -0.1   -0.1   -0.0   -0.0   -0.0
-    -0.0   -0.0   -0.0   -0.0   -0.0   -0.0    0.0    0.0    0.0    0.2
-    -0.1   -0.1   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
+    -0.2   -0.1   -0.1    0.0   -0.0   -0.0   -0.1   -0.0   -0.0   -0.0
+    -0.0   -0.0   -0.0   -0.0   -0.0   -0.0    0.0    0.0    0.1    0.3
+    -0.2   -0.1   -0.1   -0.1   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
     -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
-    -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
+    -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.1   -0.1
   TEMPERATURE CORRECTION APPLIED WAS: 
-    -0.4   -0.3   -0.2   -0.2   -0.1   -0.1   -0.1   -0.0   -0.0   -0.0
-    -0.0   -0.0   -0.0   -0.0   -0.0   -0.0    0.0    0.0    0.0    0.2
-    -0.1   -0.1   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
+    -0.2   -0.1   -0.1    0.0   -0.0   -0.0   -0.1   -0.0   -0.0   -0.0
+    -0.0   -0.0   -0.0   -0.0   -0.0   -0.0    0.0    0.0    0.1    0.3
+    -0.2   -0.1   -0.1   -0.1   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
     -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
-    -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
- pe(1)=   1.039313541793891E-005
+    -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.1   -0.1
+ pe(1)=   1.137139809537557E-005
   **** NOW AFTER CALL TO MATRIX ***** 
   **** NOW ITERATION            6  IS STARTING ****
  time when starting OSTABLOOK:
- Total time spent: 220.14 sec. Added time:  1.26 sec.
+ Total time spent: 140.40 sec. Added time:  1.27 sec.
  total and accumulated time processing OS tables:
- Total time spent: 230.94 sec. Added time: 10.80 sec.
+ Total time spent: 149.22 sec. Added time:  8.82 sec.
  time when starting OSTABLOOK:
- Total time spent: 231.03 sec. Added time:  0.08 sec.
+ Total time spent: 149.30 sec. Added time:  0.08 sec.
  total and accumulated time processing OS tables:
- Total time spent: 242.99 sec. Added time: 11.96 sec.
+ Total time spent: 158.25 sec. Added time:  8.95 sec.
  time when starting OSTABLOOK:
- Total time spent: 243.10 sec. Added time:  0.12 sec.
+ Total time spent: 158.34 sec. Added time:  0.09 sec.
  total and accumulated time processing OS tables:
- Total time spent: 256.25 sec. Added time: 13.14 sec.
+ Total time spent: 167.69 sec. Added time:  9.35 sec.
   **** NOW AFTER CALL TO SOLVE **** 
- pe(1)=   1.039313541793891E-005
+ pe(1)=   1.137139809537557E-005
  ITERATION  6
   TEMPERATURE CORRECTION WANTED BY MARCS: 
-    -0.1   -0.1   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
-    -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0    0.0    0.0    0.0
+    -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
+    -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0    0.0    0.0
     -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
     -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
     -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
   TEMPERATURE CORRECTION APPLIED WAS: 
-    -0.1   -0.1   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
-    -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0    0.0    0.0    0.0
+    -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
+    -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0    0.0    0.0
     -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
     -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
     -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0   -0.0
- pe(1)=   1.038845738891836E-005
+ pe(1)=   1.116868887388555E-005
   **** NOW AFTER CALL TO MATRIX ***** 
  ARCHIV RECORDS WRITTEN ON LUN 22
   **** NOW calling listmo  **** 
  time when starting OSTABLOOK:
- Total time spent: 260.59 sec. Added time:  4.34 sec.
+ Total time spent: 170.70 sec. Added time:  3.01 sec.
  total and accumulated time processing OS tables:
- Total time spent: 273.48 sec. Added time: 12.89 sec.
+ Total time spent: 179.41 sec. Added time:  8.71 sec.
  Total  10598 OS wavenumbers for Marcs radiative transf.
  Approximate resolution was   2000.
  OS interval:  400.0-  80004.0 cm^-1 (= 0.12- 25.0mu)
