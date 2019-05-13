@@ -199,7 +199,7 @@ Abundances of H,He,C,N,O,Fe:
 H-      H BF G1 (H+H)   H2+     H2-     C I     MG I    AL I    SI I    HE I    
 HE-     H2PR    HEPR    ELSC    H-SC    H2SC    
  time when starting OSTABLOOK:
- Total time spent:  0.04 sec. Added time:  0.04 sec.
+ Total time spent:  0.05 sec. Added time:  0.05 sec.
  Number of elements read into eqmol from tsuji.atoms:           38
   after call to JON loop (11) in OSTABLOOK
  nm=  1 for molecule: C2   with presmo index  9
@@ -747,15 +747,15 @@ HE-     H2PR    HEPR    ELSC    H-SC    H2SC
  1.032E+07 1.052E+07 1.070E+07 1.085E+07 1.099E+07 1.109E+07 1.117E+07 1.122E+07
  1.125E+07 1.124E+07 1.121E+07 1.115E+07 1.106E+07 1.095E+07 1.081E+07 1.064E+07
  total and accumulated time processing OS tables:
- Total time spent:  8.42 sec. Added time:  8.38 sec.
+ Total time spent:  8.32 sec. Added time:  8.27 sec.
  time when starting OSTABLOOK:
- Total time spent:  8.51 sec. Added time:  0.08 sec.
+ Total time spent:  8.40 sec. Added time:  0.08 sec.
  total and accumulated time processing OS tables:
- Total time spent: 16.95 sec. Added time:  8.45 sec.
+ Total time spent: 16.69 sec. Added time:  8.28 sec.
  time when starting OSTABLOOK:
- Total time spent: 17.03 sec. Added time:  0.08 sec.
+ Total time spent: 16.78 sec. Added time:  0.09 sec.
  total and accumulated time processing OS tables:
- Total time spent: 25.50 sec. Added time:  8.47 sec.
+ Total time spent: 25.02 sec. Added time:  8.24 sec.
   **** NOW AFTER CALL TO SOLVE **** 
  pe(1)=   1.928275757999439E-005
  ITERATION  1
@@ -775,17 +775,17 @@ HE-     H2PR    HEPR    ELSC    H-SC    H2SC
   **** NOW AFTER CALL TO MATRIX ***** 
   **** NOW ITERATION            2  IS STARTING ****
  time when starting OSTABLOOK:
- Total time spent: 26.88 sec. Added time:  1.38 sec.
+ Total time spent: 26.41 sec. Added time:  1.40 sec.
  total and accumulated time processing OS tables:
- Total time spent: 35.35 sec. Added time:  8.47 sec.
+ Total time spent: 34.69 sec. Added time:  8.27 sec.
  time when starting OSTABLOOK:
- Total time spent: 35.44 sec. Added time:  0.09 sec.
+ Total time spent: 34.77 sec. Added time:  0.09 sec.
  total and accumulated time processing OS tables:
- Total time spent: 43.79 sec. Added time:  8.35 sec.
+ Total time spent: 43.03 sec. Added time:  8.26 sec.
  time when starting OSTABLOOK:
- Total time spent: 43.88 sec. Added time:  0.09 sec.
+ Total time spent: 43.11 sec. Added time:  0.07 sec.
  total and accumulated time processing OS tables:
- Total time spent: 52.36 sec. Added time:  8.48 sec.
+ Total time spent: 51.44 sec. Added time:  8.33 sec.
   **** NOW AFTER CALL TO SOLVE **** 
  pe(1)=   2.816978724952681E-005
  ITERATION  2
@@ -805,17 +805,17 @@ HE-     H2PR    HEPR    ELSC    H-SC    H2SC
   **** NOW AFTER CALL TO MATRIX ***** 
   **** NOW ITERATION            3  IS STARTING ****
  time when starting OSTABLOOK:
- Total time spent: 53.73 sec. Added time:  1.38 sec.
+ Total time spent: 52.84 sec. Added time:  1.40 sec.
  total and accumulated time processing OS tables:
- Total time spent: 62.09 sec. Added time:  8.36 sec.
+ Total time spent: 61.05 sec. Added time:  8.21 sec.
  time when starting OSTABLOOK:
- Total time spent: 62.17 sec. Added time:  0.08 sec.
+ Total time spent: 61.13 sec. Added time:  0.08 sec.
  total and accumulated time processing OS tables:
- Total time spent: 70.59 sec. Added time:  8.42 sec.
+ Total time spent: 69.42 sec. Added time:  8.30 sec.
  time when starting OSTABLOOK:
- Total time spent: 70.67 sec. Added time:  0.08 sec.
+ Total time spent: 69.51 sec. Added time:  0.08 sec.
  total and accumulated time processing OS tables:
- Total time spent: 79.11 sec. Added time:  8.44 sec.
+ Total time spent: 77.79 sec. Added time:  8.28 sec.
   **** NOW AFTER CALL TO SOLVE **** 
  pe(1)=   3.521982140673861E-005
  ITERATION  3
@@ -835,17 +835,17 @@ HE-     H2PR    HEPR    ELSC    H-SC    H2SC
   **** NOW AFTER CALL TO MATRIX ***** 
   **** NOW ITERATION            4  IS STARTING ****
  time when starting OSTABLOOK:
- Total time spent: 80.51 sec. Added time:  1.40 sec.
+ Total time spent: 79.18 sec. Added time:  1.39 sec.
  total and accumulated time processing OS tables:
- Total time spent: 88.92 sec. Added time:  8.41 sec.
+ Total time spent: 87.36 sec. Added time:  8.18 sec.
  time when starting OSTABLOOK:
- Total time spent: 89.01 sec. Added time:  0.09 sec.
+ Total time spent: 87.43 sec. Added time:  0.07 sec.
  total and accumulated time processing OS tables:
- Total time spent: 97.40 sec. Added time:  8.39 sec.
+ Total time spent: 95.74 sec. Added time:  8.31 sec.
  time when starting OSTABLOOK:
- Total time spent: 97.48 sec. Added time:  0.08 sec.
+ Total time spent: 95.83 sec. Added time:  0.09 sec.
  total and accumulated time processing OS tables:
- Total time spent: 105.88 sec. Added time:  8.40 sec.
+ Total time spent: 104.13 sec. Added time:  8.30 sec.
   **** NOW AFTER CALL TO SOLVE **** 
  pe(1)=   3.857365431198210E-005
  ITERATION  4
@@ -865,17 +865,17 @@ HE-     H2PR    HEPR    ELSC    H-SC    H2SC
   **** NOW AFTER CALL TO MATRIX ***** 
   **** NOW ITERATION            5  IS STARTING ****
  time when starting OSTABLOOK:
- Total time spent: 107.27 sec. Added time:  1.39 sec.
+ Total time spent: 105.53 sec. Added time:  1.40 sec.
  total and accumulated time processing OS tables:
- Total time spent: 115.60 sec. Added time:  8.33 sec.
+ Total time spent: 113.88 sec. Added time:  8.35 sec.
  time when starting OSTABLOOK:
- Total time spent: 115.68 sec. Added time:  0.08 sec.
+ Total time spent: 113.96 sec. Added time:  0.08 sec.
  total and accumulated time processing OS tables:
- Total time spent: 124.01 sec. Added time:  8.32 sec.
+ Total time spent: 122.19 sec. Added time:  8.24 sec.
  time when starting OSTABLOOK:
- Total time spent: 124.09 sec. Added time:  0.08 sec.
+ Total time spent: 122.28 sec. Added time:  0.09 sec.
  total and accumulated time processing OS tables:
- Total time spent: 132.42 sec. Added time:  8.33 sec.
+ Total time spent: 130.60 sec. Added time:  8.32 sec.
   **** NOW AFTER CALL TO SOLVE **** 
  pe(1)=   3.998140637532085E-005
  ITERATION  5
@@ -895,17 +895,17 @@ HE-     H2PR    HEPR    ELSC    H-SC    H2SC
   **** NOW AFTER CALL TO MATRIX ***** 
   **** NOW ITERATION            6  IS STARTING ****
  time when starting OSTABLOOK:
- Total time spent: 133.80 sec. Added time:  1.38 sec.
+ Total time spent: 131.97 sec. Added time:  1.37 sec.
  total and accumulated time processing OS tables:
- Total time spent: 142.20 sec. Added time:  8.40 sec.
+ Total time spent: 140.20 sec. Added time:  8.23 sec.
  time when starting OSTABLOOK:
- Total time spent: 142.28 sec. Added time:  0.08 sec.
+ Total time spent: 140.29 sec. Added time:  0.09 sec.
  total and accumulated time processing OS tables:
- Total time spent: 150.65 sec. Added time:  8.37 sec.
+ Total time spent: 148.64 sec. Added time:  8.35 sec.
  time when starting OSTABLOOK:
- Total time spent: 150.73 sec. Added time:  0.08 sec.
+ Total time spent: 148.73 sec. Added time:  0.08 sec.
  total and accumulated time processing OS tables:
- Total time spent: 159.13 sec. Added time:  8.40 sec.
+ Total time spent: 157.04 sec. Added time:  8.31 sec.
   **** NOW AFTER CALL TO SOLVE **** 
  pe(1)=   4.027909425755615E-005
  ITERATION  6
@@ -925,17 +925,17 @@ HE-     H2PR    HEPR    ELSC    H-SC    H2SC
   **** NOW AFTER CALL TO MATRIX ***** 
   **** NOW ITERATION            7  IS STARTING ****
  time when starting OSTABLOOK:
- Total time spent: 160.53 sec. Added time:  1.40 sec.
+ Total time spent: 158.44 sec. Added time:  1.40 sec.
  total and accumulated time processing OS tables:
- Total time spent: 168.90 sec. Added time:  8.38 sec.
+ Total time spent: 166.70 sec. Added time:  8.26 sec.
  time when starting OSTABLOOK:
- Total time spent: 168.99 sec. Added time:  0.09 sec.
+ Total time spent: 166.80 sec. Added time:  0.09 sec.
  total and accumulated time processing OS tables:
- Total time spent: 177.38 sec. Added time:  8.39 sec.
+ Total time spent: 175.19 sec. Added time:  8.40 sec.
  time when starting OSTABLOOK:
- Total time spent: 177.46 sec. Added time:  0.08 sec.
+ Total time spent: 175.28 sec. Added time:  0.09 sec.
  total and accumulated time processing OS tables:
- Total time spent: 185.80 sec. Added time:  8.33 sec.
+ Total time spent: 183.80 sec. Added time:  8.52 sec.
   **** NOW AFTER CALL TO SOLVE **** 
  pe(1)=   4.043260139977268E-005
  ITERATION  7
@@ -956,9 +956,9 @@ HE-     H2PR    HEPR    ELSC    H-SC    H2SC
  ARCHIV RECORDS WRITTEN ON LUN 22
   **** NOW calling listmo  **** 
  time when starting OSTABLOOK:
- Total time spent: 189.33 sec. Added time:  3.54 sec.
+ Total time spent: 187.56 sec. Added time:  3.76 sec.
  total and accumulated time processing OS tables:
- Total time spent: 197.74 sec. Added time:  8.41 sec.
+ Total time spent: 195.83 sec. Added time:  8.27 sec.
  Total  10598 OS wavenumbers for Marcs radiative transf.
  Approximate resolution was   2000.
  OS interval:  400.0-  80004.0 cm^-1 (= 0.12- 25.0mu)
