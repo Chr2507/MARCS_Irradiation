@@ -7712,14 +7712,14 @@ C DIMENSIONS
      *,V(NDP),VD(NDP),VPE(NDP,NDP),VT(NDP,NDP)
      *,FC(NDP),FCD(NDP),FCV(NDP),FCPE(NDP,NDP),FCT(NDP,NDP)
      *,PE(NDP),PEPE(NDP,NDP),PET(NDP,NDP)
-     *,T(NDP),TTT(NDP,NDP),TPE(NDP,NDP),TJ1(NDP),TJ2(NDP)
-     *,PRPE(NDP,NDP)
+     *,T(NDP),TTT(NDP,NDP),TPE(NDP,NDP),TJ1(NDP),TJ2(NDP),TTTS(NDP)
+     *,PRPE(NDP,NDP),RTS(NDP)
      *,SCRATC(NDP,NDP),DBPL(NDP)
      *,XT(NDP),ST(NDP),DLNX(NDP),XLOG(NDP)
      *,XPE(NDP),SPE(NDP)
      *,RPR(NDP),RP(NDP),RD(NDP),RV(NDP),RFC(NDP),RPE(NDP),RT(NDP)
       LOGICAL NEWV
-      real*8 a,b,c,aa,bb,cc,aaa,ccc
+      real*8 a,b,c,aa,bb,cc,aaa,ccc,STBZ,IR,RS,R,TEFF,TIR
       character*24 idmodl
 C
 C CONNECTIONS VIA COMMON.
@@ -7751,6 +7751,7 @@ CUGJ FFR in excess     COMMON /CSPHER/DIFLOG,RADIUS,RR(NDP),NCORE,FFR(NDP)
       COMMON /CSPHER/DIFLOG,RADIUS,RR(NDP),NCORE
 C OWN COMMONS
       COMMON /CTRAN/X(NDP),S(NDP),BPLAN(NDP),XJ(NDP),HFLUX(NDP),XK(NDP)
+     *    ,EJ(NDP)
      &  ,dumtran(4*ndp),idumtran(3)
       COMMON /CANGLE/XMU(6),XMU2(6),H(6),MMU_PP
       COMMON /CSURF/HSURF,Y1(NRAYS)
@@ -8081,12 +8082,14 @@ C LOWER BOUNDARY
       XJPE3(K)=0.
 144   CONTINUE
 C
+C IRRADIATION
+      CALL IRRAD(K)
 C TEMPERATURE EQUATION
-      IF(K.GT.MIHAL) GO TO 145
+      IF (K.GT.MIHAL) GO TO 145
 C RADIATIVE EQUILIBRIUM
       Y=-WLSTEP(J)*X(K)
       IF(K.GT.2) Y=Y*DB/(X(K)+S(K))
-      RT(K)=RT(K)-Y*(XJ(K)-BPLAN(K))
+      RT(K)=RT(K)-Y*(XJ(K)+EJ(K)-BPLAN(K))
       TJ2(K)=Y
       TJ1(K)=0.
 C...      TTT(K,K)=TTT(K,K)+MAX(0.0D+0,-Y*DBPL(K)+Y*(XJ(K)-BPLAN(K))
@@ -8597,27 +8600,16 @@ C ELECTRON PRESSURE
 C
 C TIME
       CALL CLOCK
-C
 C      
-C      DO 901 K=1,MIHAL
-C        RT(K)=RT(K)+100
-C901   CONTINUE
-C
-      CALL IRRAD(RT)
 C
 C
 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 C
 C BACKSUBSTITUTION IN GAUSS ELIMINATION SCHEME.
+      open(unit=86, file='Irrad.dat', status='old',position='append')
 C
 C INITIATE
       CALL MATINV(TTT,NTAU)
-C
-      open(Unit=88,file='Irrad.dat',status='old',position='append')
-      DO 902 J=1,NTAU
-      DO 902 I=1,NTAU
-      WRITE(88,*) 'IT:', IT, 'TTT:', TTT(I,J), 'RT', RT(J)
-902   CONTINUE
 C
       DO 400 I=1,NTAU
       PE(I)=RPE(I)
@@ -8627,16 +8619,27 @@ C
       PR(I)=RPR(I)
       P(I)=RP(I)
 C
+C
 C SOLVE FOR TEMPERATURE CORRECTION
       T(I)=0.
-      DO 400 J=1,NTAU
+      TTTS(I)=0.
+      RTS(I)=0.
+      DO 399 J=1,NTAU
       T(I)=T(I)+TTT(I,J)*RT(J)
+      write(87,*) (TTT(I,J))      
+399   CONTINUE
+      write(86,999) IT,I,S(I),X(I),XJ(I),RT(I),T(I),EJ(I)
 400   CONTINUE
 C      WRITE(2,68) ITER
 C      WRITE(2,67) (T(I),I=1,NTAU)
       WRITE(6,68) IT
       WRITE(6,*) ' TEMPERATURE CORRECTION WANTED BY MARCS: '
       WRITE(6,67) (T(I),I=1,NTAU)
+C
+C
+999   FORMAT(I1,' 'I2, ' S ' 1P1E10.3,' X '1E10.3,' XJ
+     & '1E10.3, ' RT 'E10.3,' T 'E10.3,' EJ 'E10.3)
+C
 C---
 
 C If the maximum temperature correction the program suggest to any model layer
@@ -18775,54 +18778,40 @@ C
 C
 C
 C
-!---------------------------------------------
+C---------------------------------------------
 !
-      SUBROUTINE IRRAD(RT)
+      SUBROUTINE IRRAD(K)
       implicit real*8 (a-h,o-z)
 !
 !--------------------------------------------
-C
 C STATE VARIABLES
       include 'parameter.inc'
-      COMMON /STATEC/PPR(NDP),PPT(NDP),PP(NDP),GG(NDP),ZZ(NDP),DD(NDP),
-     *VV(NDP),FFC(NDP),PPE(NDP),TT(NDP),TAULN(NDP),stro(ndp),NTAU,ITER
-      common /ckdtpe/dpex,kdtpe
-C
 C DIMENSIONS
-      DIMENSION PTAU(NDP),ROSSP(NDP),SUMW(NDP),ROSST(NDP),ROSSPE(NDP)
-     *,XL(500),W(500)
-     *,XJ1(NDP),XJ2(NDP),XJ3(NDP),XJT1(NDP),XJT2(NDP),XJT3(NDP)
-     *,XJPE1(NDP),XJPE2(NDP),XJPE3(NDP)
-     *,PR(NDP),PRT(NDP,NDP),PRJ(NDP)
-     *,PT(NDP),PTV(NDP),PTPE(NDP),PTT(NDP)
-     *,P(NDP),PPPE(2*NDP),PPTT(2*NDP)
-     *,GV(NDP),GPE(NDP),GT(NDP)
-     *,DP(2*NDP),DG(NDP),DPE(NDP,NDP),DT(NDP,NDP),DV(NDP)
-      DIMENSION D(NDP),DTS(2*NDP),DPS(2*NDP),DPES(2*NDP)
-     *,V(NDP),VD(NDP),VPE(NDP,NDP),VT(NDP,NDP)
-     *,FC(NDP),FCD(NDP),FCV(NDP),FCPE(NDP,NDP),FCT(NDP,NDP)
-     *,PE(NDP),PEPE(NDP,NDP),PET(NDP,NDP)
-     *,T(NDP),TTT(NDP,NDP),TPE(NDP,NDP),TJ1(NDP),TJ2(NDP)
-     *,PRPE(NDP,NDP)
-     *,SCRATC(NDP,NDP),DBPL(NDP)
-     *,XT(NDP),ST(NDP),DLNX(NDP),XLOG(NDP)
-     *,XPE(NDP),SPE(NDP)
-     *,RPR(NDP),RP(NDP),RD(NDP),RV(NDP),RFC(NDP),RPE(NDP),RT(NDP)
-      LOGICAL NEWV
-      real*8 a,b,c,aa,bb,cc,aaa,ccc
-      character*24 idmodl
-C
+      real*8 STBZ,IR,RS,R,TEFF,TIR
+      integer :: K 
+C COMMONS
+      COMMON /CTRAN/X(NDP),S(NDP),BPLAN(NDP),XJ(NDP),HFLUX(NDP),XK(NDP)
+     *    ,EJ(NDP)
+     &  ,dumtran(4*ndp),idumtran(3)
       COMMON /CSTYR/MIHAL,NOCONV /DEBUG/KDEBUG
+      COMMON/COS/WNOS(NWL),CONOS(NDP,NWL),WLOS(NWL),WLSTEP(NWL)
+     *    ,KOS_STEP,NWTOT,NOSMOL,NEWOSATOM,NEWOSATOMLIST
+     *    ,nchrom,OSFIL(30),MOLNAME(30),SAMPLING
+        
 C
-      IR=100000
-      DO 101 K=1,MIHAL
-        RT(K)=RT(K)+IR
-        IR=IR-5000
-101   CONTINUE
-C     
-
-
-
- 
+C     TIR:      'Temperature' of irradiation in K (Stefan-Boltzmans law) 
+C     IR:       Irradiation in erg cm^-2 s^-1
+C     TEFF:     Effective T of star in K
+C     R:        Distance from star to planet in AU
+C     RS:       Stellar radius in AU
+C
+      RS=0.00465047
+      R=1.00
+      STEFF=5770.0
+      TIR=STEFF*SQRT(RS/R)
+      STBZ=5.670e-8
+      IR=STBZ*TIR**4.0/1000
+      EJ(K)=IR/(2**(K-1))
+C
       RETURN
       END

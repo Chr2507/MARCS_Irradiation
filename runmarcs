@@ -4,8 +4,9 @@
 SECONDS=0;
 cp models/t30g45.arciv  arcivaaa.dat
 ./marcs
-mv mxmodel.dat models/t29g45ir5d.dat
-mv arcivaab.dat models/t29g45ir5d.arciv
+mv mxmodel.dat models/t31g45ir.dat
+mv arcivaab.dat models/t31g45ir.arciv
+cp mxms7.input models/t31g45ir.input
 rm spectrum.dat
 rm fort.*
 rm FLUX.DAT

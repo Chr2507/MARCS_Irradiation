@@ -1,0 +1,18 @@
+#makeinput
+
+SECONDS=0;
+cp models/t30g45.arciv  arcivaaa.dat
+./marcs_ren
+mv mxmodel.dat models/t31g45.dat
+mv arcivaab.dat models/t31g45.arciv
+cp mxms7.input models/t31g45.input
+rm spectrum.dat
+rm fort.*
+rm FLUX.DAT
+rm arcivaaa.dat
+
+hou=$((SECONDS/3600))
+min=$(((SECONDS%3600)/60))
+sec=$(((SECONDS%3600)%60))
+echo  "  runmarcs runtime was: $hou hour, $min minutes & $sec seconds."
+echo  "   " 

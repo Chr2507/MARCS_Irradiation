@@ -1,0 +1,2 @@
+ifort -g -traceback -save -O2 marcs.f -o marcs
+./runmarcs
