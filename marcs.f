@@ -18787,7 +18787,7 @@ C---------------------------------------------
 C STATE VARIABLES
       include 'parameter.inc'
 C DIMENSIONS
-      real*8 STBZ,IR,RS,R,TEFF,TIR
+      real*8 STBZ,IR,RS,R,STEFF,TIR
       integer :: K 
 C COMMONS
       COMMON /CTRAN/X(NDP),S(NDP),BPLAN(NDP),XJ(NDP),HFLUX(NDP),XK(NDP)
@@ -18797,6 +18797,9 @@ C COMMONS
       COMMON/COS/WNOS(NWL),CONOS(NDP,NWL),WLOS(NWL),WLSTEP(NWL)
      *    ,KOS_STEP,NWTOT,NOSMOL,NEWOSATOM,NEWOSATOMLIST
      *    ,nchrom,OSFIL(30),MOLNAME(30),SAMPLING
+      COMMON /CG/GRAV,KONSG /CTEFF/TEFF,FLUX
+      COMMON /NATURE/BOLTZK,CLIGHT,ECHARG,HPLNCK,PI,PI4C,RYDBRG,
+     * STEFAN
         
 C
 C     TIR:      'Temperature' of irradiation in K (Stefan-Boltzmans law) 
@@ -18811,7 +18814,7 @@ C
       TIR=STEFF*SQRT(RS/R)
       STBZ=5.670e-8
       IR=STBZ*TIR**4.0/1000
-      EJ(K)=IR/(2**(K-1))
+      EJ(K)=IR/(2**(K))
 C
       RETURN
       END
