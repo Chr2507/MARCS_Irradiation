@@ -7751,7 +7751,7 @@ CUGJ FFR in excess     COMMON /CSPHER/DIFLOG,RADIUS,RR(NDP),NCORE,FFR(NDP)
       COMMON /CSPHER/DIFLOG,RADIUS,RR(NDP),NCORE
 C OWN COMMONS
       COMMON /CTRAN/X(NDP),S(NDP),BPLAN(NDP),XJ(NDP),HFLUX(NDP),XK(NDP)
-     *    ,EJ(NDP)
+     *    ,EJ(NDP),TOTEJ(NDP),TOTIR(NDP),E(NDP),TOTE(NDP)
      &  ,dumtran(4*ndp),idumtran(3)
       COMMON /CANGLE/XMU(6),XMU2(6),H(6),MMU_PP
       COMMON /CSURF/HSURF,Y1(NRAYS)
@@ -7932,12 +7932,18 @@ C TIME
       CALL CLOCK
       MSA=0
 C     CALL MSLEFT(MSA)
+      open(unit=960,file='wlos.dat',status='replace')
+C
 C
 C WAVELENGTH LOOP
       IF(PF) WRITE(6,48) FNORD,ITER,idmodl
       IF(PF) WRITE(6,59)
       FTOT=0.
+      write(960,*) '   K,   J,  wlos(J),   WLSTEP(J),   Y'
       DO 150 J=1,NWTOT
+      write(960,996) K, J, wlos(J), WLSTEP(J), Y
+996   FORMAT(i5, i6, f10.2, f10.2, f10.2) 
+C
       DO 130 K=1,NTAU
       BPLAN(K)=BPL(TT(K),WLOS(J))
 130   DBPL(K)=DIVBP(TT(K),WLOS(J))
@@ -8085,7 +8091,7 @@ C
 C TEMPERATURE EQUATION
       IF (K.GT.MIHAL) GO TO 145
 C IRRADIATION
-      CALL IRRAD(K)
+      CALL IRRAD(K,J)
 C RADIATIVE EQUILIBRIUM
       Y=-WLSTEP(J)*X(K)
       IF(K.GT.2) Y=Y*DB/(X(K)+S(K))
@@ -8145,6 +8151,7 @@ C      IF(PFD) WRITE(7,30) (XLOG(K),K=1,26)
 C      IF(PFD) WRITE(7,30) (DLNX(K),K=1,26)
 30    FORMAT(1X,26F5.2)
 150   CONTINUE
+      close(960)
       if (newmod .eq. 2) go to 900
       TEFFP=TEFF*(FTOT/FLUX/PI)**.25
       WRITE(7,65) FTOT,TEFFP
@@ -8607,6 +8614,7 @@ CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 C
 C BACKSUBSTITUTION IN GAUSS ELIMINATION SCHEME.
       open(unit=86, file='Irrad.dat', status='old',position='append')
+      WRITE(86,*) 'IT,    I,    TAU,    RT,    TOTEJ'
 C
 C INITIATE
       CALL MATINV(TTT,NTAU)
@@ -8628,7 +8636,7 @@ C SOLVE FOR TEMPERATURE CORRECTION
       T(I)=T(I)+TTT(I,J)*RT(J)
       write(87,*) (TTT(I,J))      
 399   CONTINUE
-      write(86,999) IT,I,S(I),X(I),XJ(I),RT(I),T(I),EJ(I)
+      write(86,999) IT,I,TAU(I),RT(I),TOTEJ(I)
 400   CONTINUE
 C      WRITE(2,68) ITER
 C      WRITE(2,67) (T(I),I=1,NTAU)
@@ -8637,8 +8645,7 @@ C      WRITE(2,67) (T(I),I=1,NTAU)
       WRITE(6,67) (T(I),I=1,NTAU)
 C
 C
-999   FORMAT(I1,' 'I2, ' S ' 1P1E10.3,' X '1E10.3,' XJ
-     & '1E10.3, ' RT 'E10.3,' T 'E10.3,' EJ 'E10.3)
+999   FORMAT(I3,I3,1P5E10.3)
 C
 C---
 
@@ -8880,7 +8887,10 @@ C
       COMMON /SPACE2_PP/SOURCE(NDP),ERROR(NDP),DUM(3*NDP),P(NDP)
      & ,SP1(NDP,6),SP2(NDP,6),SP3(NDP,6),AN(NDP),AD(NDP),BD(NDP)
      & ,FACT(NDP),DSO(NDP),SP2DUM((4*NDP-29)*NDP)
-      DIMENSION A(7)
+      DIMENSION A(7)    
+      
+      open(unit=970,file='TRANEQ.dat',status='replace')
+      write(970,*) 'K, ERROR, BPLAN, X, S'
 C
 C INITIATE
       DO 100 K=1,JTAU
@@ -8888,8 +8898,12 @@ C INITIATE
       DSO(K)=0.
       XJ(K)=0.
       XK(K)=0.
-      ERROR(K)=BPLAN(K)*X(K)/(X(K)+S(K))
+      ERROR(K)=BPLAN(K)*X(K)/(X(K)+S(K)) 
+      WRITE(970,997) K, ERROR(K), BPLAN(K), X(K), S(K) 
 100   SOURCE(K)=0.
+C
+997   FORMAT(i3, 1p4e10.2)
+      close(unit=970)
 C
 C CALCULATE THE MATRIX ELEMENTS
       CALL TRANFR
@@ -8953,7 +8967,11 @@ C
      *,SP1(NDP,6),SP2(NDP,6),SP3(NDP,6),AN(NDP),AD(NDP),BD(NDP)
      *,FACT(NDP),DSO(NDP),C(6),T(6),EX(6),SP2DUM((4*NDP-29)*NDP-18)
       COMMON /CSURF/HSURF,Y1(NRAYS)
+
+
+      open(unit=980,file='TRANFR.dat',status='replace')
 C
+      write(980,*) 'A, B, C(I), T(I), EX(I), SP1(1,I), SP2(1,I)'
 C MU LOOP
       JTAU1=JTAU-1
       JTAU2=JTAU-2
@@ -8968,6 +8986,7 @@ C K=1
       B=A**2
       SP2(1,I)=1.+2.*A
       SP3(1,I)=-2.*B
+C      
 C LET P BE THE EVEN PART OF THE INTENSITY, THEN
 C
 C         P(2)= P(1) + D*P'(1) + .5*D2*P''(1)
@@ -8990,6 +9009,9 @@ C *NORD* 751009
         EX(I)=1.0
       END IF
 C
+      write(980,998) A, B, C(I), T(I), EX(I), SP2(1,I), SP3(1,I) 
+998   FORMAT(1p7e10.2)
+C
 C K=2,JTAU-1
       DO 100 K=2,JTAU1
       DTAUA=DTAUB
@@ -9006,6 +9028,7 @@ C K=JTAU
 C
 C END OF MU LOOP
 110   CONTINUE
+      close(unit=980)
 C
 C ELIMINATE SUBDIAGONAL, SAVE FACTORS IN SP1
       DO 121 I=1,MMU_PP
@@ -18780,41 +18803,40 @@ C
 C
 C---------------------------------------------
 !
-      SUBROUTINE IRRAD(K)
+      SUBROUTINE IRRAD(K,J)
       implicit real*8 (a-h,o-z)
 !
 !--------------------------------------------
 C STATE VARIABLES
       include 'parameter.inc'
 C DIMENSIONS
-      real*8 STBZ,IR,RS,R,STEFF,TIR
+      real*8 STBZ,IR,RS,R,STEFF,TIR,E
       integer :: K 
 C COMMONS
+      COMMON /TAUC/TAU(NDP),DTAULN(NDP),JTAU
       COMMON /CTRAN/X(NDP),S(NDP),BPLAN(NDP),XJ(NDP),HFLUX(NDP),XK(NDP)
-     *    ,EJ(NDP)
+     *    ,EJ(NDP),TOTEJ(NDP),TOTIR(NDP),E(NDP),TOTE(NDP)
      &  ,dumtran(4*ndp),idumtran(3)
       COMMON /CSTYR/MIHAL,NOCONV /DEBUG/KDEBUG
-      COMMON/COS/WNOS(NWL),CONOS(NDP,NWL),WLOS(NWL),WLSTEP(NWL)
-     *    ,KOS_STEP,NWTOT,NOSMOL,NEWOSATOM,NEWOSATOMLIST
-     *    ,nchrom,OSFIL(30),MOLNAME(30),SAMPLING
       COMMON /CG/GRAV,KONSG /CTEFF/TEFF,FLUX
       COMMON /NATURE/BOLTZK,CLIGHT,ECHARG,HPLNCK,PI,PI4C,RYDBRG,
      * STEFAN
-        
+      COMMON/COS/WNOS(NWL),CONOS(NDP,NWL),WLOS(NWL),WLSTEP(NWL)
+     *    ,KOS_STEP,NWTOT,NOSMOL,NEWOSATOM,NEWOSATOMLIST
+     *    ,nchrom,OSFIL(30),MOLNAME(30),SAMPLING
 C
-C     TIR:      'Temperature' of irradiation in K (Stefan-Boltzmans law) 
-C     IR:       Irradiation in erg cm^-2 s^-1
-C     TEFF:     Effective T of star in K
+C     STEFF:     Effective T of star in K
 C     R:        Distance from star to planet in AU
 C     RS:       Stellar radius in AU
 C
       RS=0.00465047
-      R=1.00
-      STEFF=5770.0
-      TIR=STEFF*SQRT(RS/R)
-      STBZ=5.670e-8
-      IR=STBZ*TIR**4.0/1000
-      EJ(K)=IR/(2**(K))
+      R=1.0
+      STEFF=5770
+      EJ(K)=BPL(STEFF,WLOS(J))*(RS/R)**2.0*EXP(-TAU(K)) 
 C
+C     TOTEJ IS ONLY USED TO WRITE OUT TOTAL IRRADIATION CONTRIBUTION TO
+C     FILE IRRAD.DAT
+C
+      TOTEJ(K)=TOTEJ(K)+EJ(K)*WLSTEP(J)
       RETURN
       END

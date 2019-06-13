@@ -2,11 +2,14 @@
 
 > Irrad.dat
 SECONDS=0;
-cp models/t30g45.arciv  arcivaaa.dat
+cp models/t31g45.arciv  arcivaaa.dat
 ./marcs
-mv mxmodel.dat models/t31g45ir.dat
+
+mv mxmodel.dat  models/t31g45ir.dat
 mv arcivaab.dat models/t31g45ir.arciv
-cp mxms7.input models/t31g45ir.input
+cp mxms7.input  models/t31g45ir.input
+cp Irrad.dat    models/t31g45ir.irrad
+
 rm spectrum.dat
 rm fort.*
 rm FLUX.DAT
