@@ -1,0 +1,234 @@
+#makeinput
+
+> Irrad.dat
+SECONDS=0;
+cp models/t25g45.arciv  arcivaaa.dat
+cp mxms7m31.input mxms7.input
+./marcs
+
+mv mxmodel.dat  models/t25g45ir31.dat
+mv arcivaab.dat models/t25g45ir31.arciv
+cp mxms7.input  models/t25g45ir31.input
+cp Irrad.dat    models/t25g45ir31.irrad
+
+rm spectrum.dat
+rm fort.*
+rm FLUX.DAT
+rm arcivaaa.dat
+
+hou=$((SECONDS/3600))
+min=$(((SECONDS%3600)/60))
+sec=$(((SECONDS%3600)%60))
+echo  "  runmarcs runtime was: $hou hour, $min minutes & $sec seconds."
+echo  "   " 
+
+
+> Irrad.dat
+SECONDS=0;
+cp models/t25g45.arciv  arcivaaa.dat
+cp mxms7m32.input mxms7.input
+./marcs
+
+mv mxmodel.dat  models/t25g45ir32.dat
+mv arcivaab.dat models/t25g45ir32.arciv
+cp mxms7.input  models/t25g45ir32.input
+cp Irrad.dat    models/t25g45ir32.irrad
+
+rm spectrum.dat
+rm fort.*
+rm FLUX.DAT
+rm arcivaaa.dat
+
+hou=$((SECONDS/3600))
+min=$(((SECONDS%3600)/60))
+sec=$(((SECONDS%3600)%60))
+echo  "  runmarcs runtime was: $hou hour, $min minutes & $sec seconds."
+echo  "   " 
+
+
+> Irrad.dat
+SECONDS=0;
+cp models/t25g45.arciv  arcivaaa.dat
+cp mxms7m33.input mxms7.input
+./marcs
+
+mv mxmodel.dat  models/t25g45ir33.dat
+mv arcivaab.dat models/t25g45ir33.arciv
+cp mxms7.input  models/t25g45ir33.input
+cp Irrad.dat    models/t25g45ir33.irrad
+
+rm spectrum.dat
+rm fort.*
+rm FLUX.DAT
+rm arcivaaa.dat
+
+hou=$((SECONDS/3600))
+min=$(((SECONDS%3600)/60))
+sec=$(((SECONDS%3600)%60))
+echo  "  runmarcs runtime was: $hou hour, $min minutes & $sec seconds."
+echo  "   " 
+
+
+> Irrad.dat
+SECONDS=0;
+cp models/t25g45.arciv  arcivaaa.dat
+cp mxms7m34.input mxms7.input
+./marcs
+
+mv mxmodel.dat  models/t25g45ir34.dat
+mv arcivaab.dat models/t25g45ir34.arciv
+cp mxms7.input  models/t25g45ir34.input
+cp Irrad.dat    models/t25g45ir34.irrad
+
+rm spectrum.dat
+rm fort.*
+rm FLUX.DAT
+rm arcivaaa.dat
+
+hou=$((SECONDS/3600))
+min=$(((SECONDS%3600)/60))
+sec=$(((SECONDS%3600)%60))
+echo  "  runmarcs runtime was: $hou hour, $min minutes & $sec seconds."
+echo  "   " 
+
+
+> Irrad.dat
+SECONDS=0;
+cp models/t25g45.arciv  arcivaaa.dat
+cp mxms7m35.input mxms7.input
+./marcs
+
+mv mxmodel.dat  models/t25g45ir35.dat
+mv arcivaab.dat models/t25g45ir35.arciv
+cp mxms7.input  models/t25g45ir35.input
+cp Irrad.dat    models/t25g45ir35.irrad
+
+rm spectrum.dat
+rm fort.*
+rm FLUX.DAT
+rm arcivaaa.dat
+
+hou=$((SECONDS/3600))
+min=$(((SECONDS%3600)/60))
+sec=$(((SECONDS%3600)%60))
+echo  "  runmarcs runtime was: $hou hour, $min minutes & $sec seconds."
+echo  "   " 
+
+
+> Irrad.dat
+SECONDS=0;
+cp models/t25g45.arciv  arcivaaa.dat
+cp mxms7m36.input mxms7.input
+./marcs
+
+mv mxmodel.dat  models/t25g45ir36.dat
+mv arcivaab.dat models/t25g45ir36.arciv
+cp mxms7.input  models/t25g45ir36.input
+cp Irrad.dat    models/t25g45ir36.irrad
+
+rm spectrum.dat
+rm fort.*
+rm FLUX.DAT
+rm arcivaaa.dat
+
+hou=$((SECONDS/3600))
+min=$(((SECONDS%3600)/60))
+sec=$(((SECONDS%3600)%60))
+echo  "  runmarcs runtime was: $hou hour, $min minutes & $sec seconds."
+echo  "   " 
+
+
+> Irrad.dat
+SECONDS=0;
+cp models/t25g45.arciv  arcivaaa.dat
+cp mxms7m37.input mxms7.input
+./marcs
+
+mv mxmodel.dat  models/t25g45ir37.dat
+mv arcivaab.dat models/t25g45ir37.arciv
+cp mxms7.input  models/t25g45ir37.input
+cp Irrad.dat    models/t25g45ir37.irrad
+
+rm spectrum.dat
+rm fort.*
+rm FLUX.DAT
+rm arcivaaa.dat
+
+hou=$((SECONDS/3600))
+min=$(((SECONDS%3600)/60))
+sec=$(((SECONDS%3600)%60))
+echo  "  runmarcs runtime was: $hou hour, $min minutes & $sec seconds."
+echo  "   " 
+
+
+> Irrad.dat
+SECONDS=0;
+cp models/t25g45.arciv  arcivaaa.dat
+cp mxms7m38.input mxms7.input
+./marcs
+
+mv mxmodel.dat  models/t25g45ir38.dat
+mv arcivaab.dat models/t25g45ir38.arciv
+cp mxms7.input  models/t25g45ir38.input
+cp Irrad.dat    models/t25g45ir38.irrad
+
+rm spectrum.dat
+rm fort.*
+rm FLUX.DAT
+rm arcivaaa.dat
+
+hou=$((SECONDS/3600))
+min=$(((SECONDS%3600)/60))
+sec=$(((SECONDS%3600)%60))
+echo  "  runmarcs runtime was: $hou hour, $min minutes & $sec seconds."
+echo  "   " 
+
+
+> Irrad.dat
+SECONDS=0;
+cp models/t25g45.arciv  arcivaaa.dat
+cp  mxms7m39.input mxms7.input
+./marcs
+
+mv mxmodel.dat  models/t25g45ir39.dat
+mv arcivaab.dat models/t25g45ir39.arciv
+cp mxms7.input  models/t25g45ir39.input
+cp Irrad.dat    models/t25g45ir39.irrad
+
+rm spectrum.dat
+rm fort.*
+rm FLUX.DAT
+rm arcivaaa.dat
+
+hou=$((SECONDS/3600))
+min=$(((SECONDS%3600)/60))
+sec=$(((SECONDS%3600)%60))
+echo  "  runmarcs runtime was: $hou hour, $min minutes & $sec seconds."
+echo  "   " 
+
+> Irrad.dat
+SECONDS=0;
+cp models/t25g45.arciv  arcivaaa.dat
+cp mxms7m40.input mxms7.input
+./marcs
+
+mv mxmodel.dat  models/t25g45ir40.dat
+mv arcivaab.dat models/t25g45ir40.arciv
+cp mxms7.input  models/t25g45ir40.input
+cp Irrad.dat    models/t25g45ir40.irrad
+
+rm spectrum.dat
+rm fort.*
+rm FLUX.DAT
+rm arcivaaa.dat
+
+hou=$((SECONDS/3600))
+min=$(((SECONDS%3600)/60))
+sec=$(((SECONDS%3600)%60))
+echo  "  runmarcs runtime was: $hou hour, $min minutes & $sec seconds."
+echo  "   " 
+
+
+
+
+

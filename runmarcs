@@ -1,14 +1,13 @@
 #makeinput
 
-> Irrad.dat
 SECONDS=0;
-cp models/t31g45.arciv  arcivaaa.dat
+cp models_final/t25g45.arciv  arcivaaa.dat
 ./marcs
 
-mv mxmodel.dat  models/t31g45ir.dat
-mv arcivaab.dat models/t31g45ir.arciv
-cp mxms7.input  models/t31g45ir.input
-cp Irrad.dat    models/t31g45ir.irrad
+mv mxmodel.dat  models_final/t25g45xq.dat
+mv arcivaab.dat models_final/t25g45xq.arciv
+cp mxms7.input  models_final/t25g45xq.input
+cp Irrad.dat    models_final/t25g45xq.irrad
 
 rm spectrum.dat
 rm fort.*

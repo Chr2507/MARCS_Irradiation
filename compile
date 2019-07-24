@@ -1,1 +1,1 @@
-ifort -g -traceback -save -O2 marcs.f -o marcs
+ifort -g -traceback -save -O2 marcs_f.f -o marcs

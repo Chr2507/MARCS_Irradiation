@@ -1,11 +1,12 @@
 #makeinput
 
 SECONDS=0;
-cp models/t21g45.arciv  arcivaaa.dat
+cp models/t35g45.arciv  arcivaaa.dat
 ./marcs_ren
-mv mxmodel.dat models/t21g45.dat
-mv arcivaab.dat models/t21g45.arciv
-cp mxms7.input models/t21g45.input
+
+mv mxmodel.dat  models/t37g45.dat
+mv arcivaab.dat models/t37g45.arciv
+cp mxms7.input  models/t37g45.input
 rm spectrum.dat
 rm fort.*
 rm FLUX.DAT

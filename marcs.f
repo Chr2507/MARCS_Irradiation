@@ -7719,7 +7719,7 @@ C DIMENSIONS
      *,XPE(NDP),SPE(NDP)
      *,RPR(NDP),RP(NDP),RD(NDP),RV(NDP),RFC(NDP),RPE(NDP),RT(NDP)
       LOGICAL NEWV
-      real*8 a,b,c,aa,bb,cc,aaa,ccc,STBZ,IR,RS,R,TEFF,TIR
+      real*8 a,b,c,aa,bb,cc,aaa,ccc,STBZ,IR,RS,R,STEFF,TIR
       character*24 idmodl
 C
 C CONNECTIONS VIA COMMON.
@@ -7774,7 +7774,10 @@ C SPACE ALLOCATION
       common /cdustdata/ dabstable(max_lay,nwl),dscatable(max_lay,nwl),
      *    eps(max_eps,max_lay),temp(max_lay),pgas(max_lay),n_lay,idust      
       common /cdustopac/ dust_abs(ndp,nwl), dust_sca(ndp,nwl)
-
+! IRRADIATION
+      COMMON /CROSSIR/ROSSIR(NDP),ROSSPIR(NDP),SUMWIR(NDP),TAURIR(NDP)
+      COMMON /CPLANCKIR/PLANCKIR(NDP),PLANCKPIR(NDP),SUMWPIR(NDP),
+     &     TAUPIR(NDP)
 C
 C DATA
       DATA IVERS,IEDIT/21,1/
@@ -7805,6 +7808,7 @@ C ZEROSET
 110   CONTINUE
       kdtpe = 0
 C
+C 
 C CALCULATE DETAILED ROSSELAND MEAN
       REWIND 11
       KL=1
@@ -7818,7 +7822,10 @@ C CALCULATE DETAILED ROSSELAND MEAN
         SUMW(K)=0.
         ROSSP(K)=0.
 116   CONTINUE
-C       write(7,*) 'j,wlos(j),wlstep(j),ya,y,x(k),s(k) (k=10) in SOLVE='
+      STEFF=5700
+      CALL ROSSIRRAD(STEFF)
+      CALL PLANCKIRRAD(STEFF)
+C      write(7,*) 'j,wlos(j),wlstep(j),ya,y,x(k),s(k) (k=10) in SOLVE='
       DO 117 J=1,NWTOT
         CALL OPAC(J,X,S)
         WRITE(11) X,S
@@ -8614,7 +8621,8 @@ CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
 C
 C BACKSUBSTITUTION IN GAUSS ELIMINATION SCHEME.
       open(unit=86, file='Irrad.dat', status='old',position='append')
-      WRITE(86,*) 'IT,    I,    TAU,    RT,    TOTEJ'
+      WRITE(86,*) 'IT, I,  TAU,     TAURIR,  TAUPIR,  ROSS, ROSSIR', 
+     &    '  PLANCKIR'
 C
 C INITIATE
       CALL MATINV(TTT,NTAU)
@@ -8636,7 +8644,8 @@ C SOLVE FOR TEMPERATURE CORRECTION
       T(I)=T(I)+TTT(I,J)*RT(J)
       write(87,*) (TTT(I,J))      
 399   CONTINUE
-      write(86,999) IT,I,TAU(I),RT(I),TOTEJ(I)
+      write(86,999)I,TAU(I),TAURIR(I),TAUPIR(I),ROSS(I),ROSSIR(I),
+     &   PLANCKIR(I)
 400   CONTINUE
 C      WRITE(2,68) ITER
 C      WRITE(2,67) (T(I),I=1,NTAU)
@@ -8645,7 +8654,7 @@ C      WRITE(2,67) (T(I),I=1,NTAU)
       WRITE(6,67) (T(I),I=1,NTAU)
 C
 C
-999   FORMAT(I3,I3,1P5E10.3)
+999   FORMAT(I3,1P6E10.3)
 C
 C---
 
@@ -18810,7 +18819,7 @@ C---------------------------------------------
 C STATE VARIABLES
       include 'parameter.inc'
 C DIMENSIONS
-      real*8 STBZ,IR,RS,R,STEFF,TIR,E
+      real*8 STBZ,IR,RS,R,STEFF,TIR,E,THETA,MUIR
       integer :: K 
 C COMMONS
       COMMON /TAUC/TAU(NDP),DTAULN(NDP),JTAU
@@ -18824,15 +18833,22 @@ C COMMONS
       COMMON/COS/WNOS(NWL),CONOS(NDP,NWL),WLOS(NWL),WLSTEP(NWL)
      *    ,KOS_STEP,NWTOT,NOSMOL,NEWOSATOM,NEWOSATOMLIST
      *    ,nchrom,OSFIL(30),MOLNAME(30),SAMPLING
+      COMMON /CROSSIR/ROSSIR(NDP),ROSSPIR(NDP),SUMWIR(NDP),TAURIR(NDP)
+      COMMON /CPLANCKIR/PLANCKIR(NDP),PLANCKPIR(NDP),SUMWPIR(NDP),
+     &     TAUPIR(NDP)
+
 C
-C     STEFF:     Effective T of star in K
+C     STEFF:    Effective T of star in K
 C     R:        Distance from star to planet in AU
 C     RS:       Stellar radius in AU
 C
       RS=0.00465047
       R=1.0
       STEFF=5770
-      EJ(K)=BPL(STEFF,WLOS(J))*(RS/R)**2.0*EXP(-TAU(K)) 
+      THETA=PI/4
+      MUIR=SIN((PI/2)-THETA)       
+C
+      EJ(K)=BPL(STEFF,WLOS(J))*(RS/R)**2.0*EXP(-TAUPIR(K)/MUIR) 
       EJ(K)=EJ(K)/(4*1)
 C
 C     TOTEJ IS ONLY USED TO WRITE OUT TOTAL IRRADIATION CONTRIBUTION TO
@@ -18841,3 +18857,105 @@ C
       TOTEJ(K)=TOTEJ(K)+EJ(K)*WLSTEP(J)
       RETURN
       END
+
+C--------------------------------------------
+!
+      SUBROUTINE ROSSIRRAD(STEFF)
+      implicit real*8 (a-h,o-z)
+!
+C--------------------------------------------
+C STATE VARIABLES
+      include 'parameter.inc'
+C DIMENSIONS
+      real*8 STEFF, YAIR
+      integer :: J, K
+C COMMONS
+      COMMON /STATEC/PPR(NDP),PPT(NDP),PP(NDP),GG(NDP),ZZ(NDP),DD(NDP),
+     *VV(NDP),FFC(NDP),PPE(NDP),TT(NDP),TAULN(NDP),stro(ndp),NTAU,ITER
+C OWN COMMONS
+      COMMON /CTRAN/X(NDP),S(NDP),BPLAN(NDP),XJ(NDP),HFLUX(NDP),XK(NDP)
+     *    ,EJ(NDP),TOTEJ(NDP),TOTIR(NDP),E(NDP),TOTE(NDP)
+     &  ,dumtran(4*ndp),idumtran(3)
+      COMMON /CROSSIR/ROSSIR(NDP),ROSSPIR(NDP),SUMWIR(NDP),TAURIR(NDP)
+      COMMON/COS/WNOS(NWL),CONOS(NDP,NWL),WLOS(NWL),WLSTEP(NWL)
+     *    ,KOS_STEP,NWTOT,NOSMOL,NEWOSATOM,NEWOSATOMLIST
+     *    ,nchrom,OSFIL(30),MOLNAME(30),SAMPLING
+      COMMON /CG/GRAV,KONSG /CTEFF/TEFF,FLUX
+C
+C CALCULATE DETAILED ROSSELAND MEAN FOR IRRADIATION
+      DO 116 K=1,NTAU
+        ROSSIR(K)=1.0
+        SUMWIR(K)=0.
+        ROSSPIR(K)=0.
+116   CONTINUE
+      DO 117 J=1,NWTOT
+        CALL OPAC(J,X,S)
+        Y=((WLOS(J)/1.E4)**2)**3
+        DO 117 K=1,NTAU
+          YAIR=EXP(-1.438E8/(STEFF*WLOS(J)))
+          YAIR=YAIR/(1.-YAIR)**2/Y
+          SUMWIR(K)=SUMWIR(K)+WLSTEP(J)*YAIR
+        if (wlos(j).le.5000. .or. wlos(j).ge.1.e5) go to 117
+          ROSSPIR(K)=ROSSPIR(K)+WLSTEP(J)*YAIR/(ROSSIR(K)*(X(K)+S(K)))
+117   CONTINUE
+      DO 111 K=1,NTAU
+        ROSSPIR(K)=SUMWIR(K)/ROSSPIR(K)
+        SUMWIR(K)=0.
+        ROSSIR(K)=ROSSPIR(K)
+        TAURIR(K)=ROSSIR(K)*PP(K)/GRAV
+111   CONTINUE
+C
+      RETURN
+      END
+C
+C--------------------------------------------
+!
+      SUBROUTINE PLANCKIRRAD(STEFF)
+      implicit real*8 (a-h,o-z)
+!
+C--------------------------------------------
+C STATE VARIABLES
+      include 'parameter.inc'
+C DIMENSIONS
+      real*8 STEFF, YAIR
+      integer :: J, K
+C COMMONS
+      COMMON /STATEC/PPR(NDP),PPT(NDP),PP(NDP),GG(NDP),ZZ(NDP),DD(NDP),
+     *VV(NDP),FFC(NDP),PPE(NDP),TT(NDP),TAULN(NDP),stro(ndp),NTAU,ITER
+C OWN COMMONS
+      COMMON /CTRAN/X(NDP),S(NDP),BPLAN(NDP),XJ(NDP),HFLUX(NDP),XK(NDP)
+     *    ,EJ(NDP),TOTEJ(NDP),TOTIR(NDP),E(NDP),TOTE(NDP)
+     &  ,dumtran(4*ndp),idumtran(3)
+      COMMON /CPLANCKIR/PLANCKIR(NDP),PLANCKPIR(NDP),SUMWPIR(NDP),
+     &     TAUPIR(NDP)
+      COMMON/COS/WNOS(NWL),CONOS(NDP,NWL),WLOS(NWL),WLSTEP(NWL)
+     *    ,KOS_STEP,NWTOT,NOSMOL,NEWOSATOM,NEWOSATOMLIST
+     *    ,nchrom,OSFIL(30),MOLNAME(30),SAMPLING
+      COMMON /CG/GRAV,KONSG /CTEFF/TEFF,FLUX
+C
+C CALCULATE DETAILED ROSSELAND MEAN FOR IRRADIATION
+      DO 116 K=1,NTAU
+        PLANCKIR(K)=1.0
+        SUMWPIR(K)=0.
+        PLANCKPIR(K)=0.
+116   CONTINUE
+      DO 117 J=1,NWTOT
+        CALL OPAC(J,X,S)
+        DO 117 K=1,NTAU
+          BPIR=BPL(STEFF,WLOS(J))
+          SUMWPIR(K)=SUMWPIR(K)+WLSTEP(J)*BPIR
+        if (wlos(j).le.5000. .or. wlos(j).ge.1.e5) go to 117
+          PLANCKPIR(K)=PLANCKPIR(K)+WLSTEP(J)*BPIR*
+     &    (PLANCKIR(K)*(X(K)+S(K)))
+117   CONTINUE
+      DO 111 K=1,NTAU
+        PLANCKPIR(K)=PLANCKPIR(K)/SUMWPIR(K)
+        SUMWPIR(K)=0.
+        PLANCKIR(K)=PLANCKPIR(K)
+        TAUPIR(K)=PLANCKIR(K)*PP(K)/GRAV
+111   CONTINUE
+C
+      RETURN
+      END
+C
+
